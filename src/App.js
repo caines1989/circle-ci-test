@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react"
+import styled from "styled-components"
 
-function App() {
+export default function App() {
+  const [showText, setShowText] = useState(false)
+
+  const handleClick = () => {
+    setShowText(!showText)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Div>
+      <Button onClick={handleClick}>
+        {showText ? "Hide Text" : "Show Text"}
+      </Button>
+      {showText && <p>Hello, this is the new text!</p>}
+    </Div>
+  )
 }
 
-export default App;
+const Div = styled.div`
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #002900;
+`
+
+const Button = styled.button`
+  background-color: #00bd65;
+  border-color: #48a35a;
+  color: #002900;
+  border-radius: 20px;
+  padding: 10px 20px;
+`
