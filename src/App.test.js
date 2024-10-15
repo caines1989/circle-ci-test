@@ -2,7 +2,6 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
 
 test('toggles text on button click depending on state', () => {
-  // Render the App component
   render(<App />);
 
   // Find the button element by its text
